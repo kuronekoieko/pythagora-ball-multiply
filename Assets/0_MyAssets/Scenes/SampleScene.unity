@@ -29576,13 +29576,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Delegates:
-  - eventID: 2
+  - eventID: 5
     callback:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 1088697376}
           m_TargetAssemblyTypeName: RotatableController, Assembly-CSharp
-          m_MethodName: OnPointerDown
+          m_MethodName: OnDrag
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
