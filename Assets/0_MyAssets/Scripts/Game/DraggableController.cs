@@ -1,14 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class DraggableController : MonoBehaviour
 {
     [SerializeField] Transform axisTf;
+    [SerializeField] SpriteRenderer arrowSR;
     Vector3 startPos;
+
     void Start()
     {
         startPos = transform.position;
+        DOTween.ToAlpha(() => arrowSR.color, (x) => arrowSR.color = x, 0.1f, 1f).SetEase(Ease.Flash, 2).SetLoops(-1);
+
     }
 
     public void OnDrag()
