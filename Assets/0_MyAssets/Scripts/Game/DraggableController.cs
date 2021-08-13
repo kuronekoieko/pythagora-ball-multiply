@@ -13,7 +13,6 @@ public class DraggableController : MonoBehaviour
     {
         startPos = transform.position;
         DOTween.ToAlpha(() => arrowSR.color, (x) => arrowSR.color = x, 0.1f, 1f).SetEase(Ease.Flash, 2).SetLoops(-1);
-
     }
 
     public void OnDrag()

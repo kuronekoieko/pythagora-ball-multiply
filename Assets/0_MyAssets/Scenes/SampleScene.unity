@@ -29464,6 +29464,9 @@ GameObject:
   - component: {fileID: 1088697374}
   - component: {fileID: 1088697373}
   - component: {fileID: 1088697372}
+  - component: {fileID: 1088697376}
+  - component: {fileID: 1088697377}
+  - component: {fileID: 1088697378}
   m_Layer: 0
   m_Name: Rotatable
   m_TagString: Untagged
@@ -29547,6 +29550,61 @@ Transform:
   m_Father: {fileID: 776289499}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -45}
+--- !u!114 &1088697376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1088697371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 236e0d398d94f844b81f0a5490b6314e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  arrowSR: {fileID: 750901426}
+--- !u!114 &1088697377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1088697371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1088697376}
+          m_TargetAssemblyTypeName: RotatableController, Assembly-CSharp
+          m_MethodName: OnPointerDown
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!65 &1088697378
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1088697371}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5.734388, y: 1, z: 1}
+  m_Center: {x: -0.15029776, y: -3.0819458e-11, z: 0}
 --- !u!43 &1101616975
 Mesh:
   m_ObjectHideFlags: 0
@@ -29996,6 +30054,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   axisTf: {fileID: 2056274603}
+  arrowSR: {fileID: 1066476574}
 --- !u!1 &1170181772
 GameObject:
   m_ObjectHideFlags: 0
