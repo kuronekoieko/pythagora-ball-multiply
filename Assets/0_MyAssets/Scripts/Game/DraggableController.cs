@@ -29,8 +29,9 @@ public class DraggableController : MonoBehaviour
         Vector3 screenPos = Input.mousePosition;
         screenPos.z = -Camera.main.transform.position.z;
         Vector3 worldPos = Camera.main.ScreenToWorldPoint(screenPos);
-        worldPos.x = Mathf.Clamp(worldPos.x, -3.4f, 3.4f);
         worldPos.x -= offsetX;
+        worldPos.x = Mathf.Clamp(worldPos.x, -3.4f, 3.4f);
+
         worldPos.y = startPos.y;
         transform.position = worldPos;
         axisTf.position = worldPos;
