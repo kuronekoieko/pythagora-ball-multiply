@@ -15961,7 +15961,7 @@ GameObject:
   m_Component:
   - component: {fileID: 202998061}
   m_Layer: 0
-  m_Name: Axis (1)
+  m_Name: Axis_right
   m_TagString: Untagged
   m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -29218,6 +29218,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1106588389}
+  - component: {fileID: 1106588391}
+  - component: {fileID: 1106588390}
+  - component: {fileID: 1106588392}
   m_Layer: 0
   m_Name: BallPipe_Start
   m_TagString: Untagged
@@ -29243,6 +29246,62 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1106588390
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1106588388}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.3236141, y: 4.3872766, z: 2.4}
+  m_Center: {x: -0.00000023841858, y: 2.0127234, z: 0}
+--- !u!114 &1106588391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1106588388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80be3226995568b40b0fea8d07c6bc90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  axisLeftTf: {fileID: 1836159190}
+  axisRightTf: {fileID: 202998061}
+--- !u!114 &1106588392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1106588388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1106588391}
+          m_TargetAssemblyTypeName: StartPipeController, Assembly-CSharp
+          m_MethodName: OnPointerDown
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1137727559
 GameObject:
   m_ObjectHideFlags: 0
@@ -61168,7 +61227,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1836159190}
   m_Layer: 0
-  m_Name: Axis
+  m_Name: Axis_left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
