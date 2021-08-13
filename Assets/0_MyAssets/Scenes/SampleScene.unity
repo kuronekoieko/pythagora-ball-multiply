@@ -37326,7 +37326,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7446176949016617928, guid: eed035b597ed4824f8b65b437693d59e, type: 3}
       propertyPath: count
-      value: -10
+      value: -100
       objectReference: {fileID: 0}
     - target: {fileID: 7446176949016617928, guid: eed035b597ed4824f8b65b437693d59e, type: 3}
       propertyPath: gateType
@@ -69957,6 +69957,10 @@ PrefabInstance:
     - target: {fileID: 456317136915270715, guid: eed035b597ed4824f8b65b437693d59e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7446176949016617928, guid: eed035b597ed4824f8b65b437693d59e, type: 3}
+      propertyPath: count
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eed035b597ed4824f8b65b437693d59e, type: 3}

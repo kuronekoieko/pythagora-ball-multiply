@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BallController : MonoBehaviour
 {
-
+    public bool IsDuplicated { set; get; }
     public void Multiple()
     {
 

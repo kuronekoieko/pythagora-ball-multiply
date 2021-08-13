@@ -24,6 +24,7 @@ public class GateCollisionController : MonoBehaviour
         switch (gateType)
         {
             case GateType.Multiple:
+                textMeshPro.text = "x" + count.ToString();
                 break;
             case GateType.Decrease:
                 textMeshPro.text = count.ToString();
@@ -54,7 +55,23 @@ public class GateCollisionController : MonoBehaviour
 
     void Multiple(BallController ball)
     {
+        if (ball.IsDuplicated == true) return;
         ball.Multiple();
+        ball.IsDuplicated = true;
+
+        for (int i = 0; i < count - 1; i++)
+        {
+            var angle = Random.Range(0, 360);
+            var radius = 0.3f;
+            var rad = angle * Mathf.Deg2Rad;
+            var px = Mathf.Cos(rad);
+            var py = Mathf.Sin(rad);
+            var offset = new Vector3(px, py, 0) * radius;
+
+            Debug.Log(offset);
+            var newBall = BallsManager.i.GetNewBall();
+            newBall.transform.position = ball.transform.position + offset;
+        }
     }
 
     void Decrease(BallController ball)
