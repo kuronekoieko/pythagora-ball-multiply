@@ -29929,6 +29929,7 @@ GameObject:
   - component: {fileID: 1137727560}
   - component: {fileID: 1137727565}
   - component: {fileID: 1137727564}
+  - component: {fileID: 1137727566}
   m_Layer: 0
   m_Name: Draggable
   m_TagString: Untagged
@@ -30041,6 +30042,22 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1137727565}
+          m_TargetAssemblyTypeName: DraggableController, Assembly-CSharp
+          m_MethodName: OnPointerDown
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!114 &1137727565
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30055,6 +30072,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   axisTf: {fileID: 2056274603}
   arrowSR: {fileID: 1066476574}
+--- !u!65 &1137727566
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1137727559}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5.3210707, y: 1, z: 1}
+  m_Center: {x: 0.09393543, y: 4.8552384e-11, z: 0}
 --- !u!1 &1170181772
 GameObject:
   m_ObjectHideFlags: 0
