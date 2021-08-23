@@ -18,7 +18,7 @@ public class GateController : MonoBehaviour
     [SerializeField] TextMeshPro textMeshPro;
     [SerializeField] SpriteRenderer bgSr;
     [SerializeField] GateColor[] gateColors;
-    [SerializeField] int count;
+    [SerializeField] [OnValueChanged(nameof(OnChangedCount))] int count;
     Vector2 upperRightLimit;
     Vector2 bottomLeftLimit;
     float ballRadius = 0.2f;
@@ -31,6 +31,21 @@ public class GateController : MonoBehaviour
         if (gateColor == null) return;
         textMeshPro.color = gateColor.textColor;
         bgSr.color = gateColor.bgColor;
+    }
+
+    void OnChangedCount()
+    {
+        switch (gateType)
+        {
+            case GateType.Multiple:
+                textMeshPro.text = "x" + count.ToString();
+                break;
+            case GateType.Decrease:
+                textMeshPro.text = count.ToString();
+                break;
+            default:
+                break;
+        }
     }
 
 
@@ -118,6 +133,7 @@ public class GateController : MonoBehaviour
 
     public void Decrease(BallController ball)
     {
+        PlayMultipleTween();
         count += 1;
         textMeshPro.text = count.ToString();
         ball.Decrease();
