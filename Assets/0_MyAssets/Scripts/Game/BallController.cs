@@ -5,6 +5,7 @@ using DG.Tweening;
 
 public class BallController : MonoBehaviour
 {
+    [SerializeField] ParticleSystem brokenPs;
     List<GateController> passedGates { set; get; } = new List<GateController>();
 
     public void Multiple(GateController gate)
@@ -32,5 +33,7 @@ public class BallController : MonoBehaviour
     public void Decrease()
     {
         gameObject.SetActive(false);
+        brokenPs.transform.parent = null;
+        brokenPs.Play();
     }
 }

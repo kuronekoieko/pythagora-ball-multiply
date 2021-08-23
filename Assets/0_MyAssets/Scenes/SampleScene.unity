@@ -37425,7 +37425,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7051428413149381838, guid: eed035b597ed4824f8b65b437693d59e, type: 3}
       propertyPath: count
-      value: -10
+      value: -200
       objectReference: {fileID: 0}
     - target: {fileID: 7051428413149381838, guid: eed035b597ed4824f8b65b437693d59e, type: 3}
       propertyPath: gateType
