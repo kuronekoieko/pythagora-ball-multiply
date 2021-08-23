@@ -10,6 +10,7 @@ public class BallsManager : MonoBehaviour
     List<BallController> ballControllers = new List<BallController>();
     float ballsDistance = 0.4f;
     public static BallsManager i;
+    public int ActiveCount => ballControllers.Count(_ => _.gameObject.activeSelf);
 
     void Awake()
     {
@@ -17,6 +18,7 @@ public class BallsManager : MonoBehaviour
         for (int i = 0; i < 100; i++)
         {
             ballControllers.Add(Instantiate(ballPrefab, Vector3.zero, Quaternion.identity, transform));
+            ballControllers[i].gameObject.SetActive(i < initialCount);
         }
     }
 
@@ -30,7 +32,6 @@ public class BallsManager : MonoBehaviour
 
             if (i > initialCount - 1)
             {
-                ballControllers[i].gameObject.SetActive(false);
                 continue;
             }
 
