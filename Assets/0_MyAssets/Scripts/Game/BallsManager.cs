@@ -6,6 +6,7 @@ using System.Linq;
 public class BallsManager : MonoBehaviour
 {
     [SerializeField] BallController ballPrefab;
+    [SerializeField] int initialCount;
     List<BallController> ballControllers = new List<BallController>();
     float ballsDistance = 0.4f;
     public static BallsManager i;
@@ -27,7 +28,7 @@ public class BallsManager : MonoBehaviour
         for (int i = 0; i < ballControllers.Count; i++)
         {
 
-            if (i > 30)
+            if (i > initialCount - 1)
             {
                 ballControllers[i].gameObject.SetActive(false);
                 continue;

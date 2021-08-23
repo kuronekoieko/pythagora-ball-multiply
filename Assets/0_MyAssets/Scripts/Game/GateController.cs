@@ -18,7 +18,9 @@ public class GateController : MonoBehaviour
     [SerializeField] SpriteRenderer bgSr;
     [SerializeField] GateColor[] gateColors;
     [SerializeField] int count;
-
+    Vector2 size;
+    float ballRadius = 0.2f;
+    float padding = 0.2f;
 
     void OnChangedGateType()
     {
@@ -44,6 +46,9 @@ public class GateController : MonoBehaviour
             default:
                 break;
         }
+
+        size.x = bgSr.size.x * bgSr.transform.localScale.x;
+        size.y = bgSr.size.y * bgSr.transform.localScale.y;
     }
 
 
@@ -70,17 +75,28 @@ public class GateController : MonoBehaviour
 
         for (int i = 0; i < count - 1; i++)
         {
-            var angle = Random.Range(0, 360);
-            var radius = 0.2f;
-            var rad = angle * Mathf.Deg2Rad;
-            var px = Mathf.Cos(rad);
-            var py = Mathf.Sin(rad);
-            var offset = new Vector3(px, py, 0) * radius;
 
-            Debug.Log(offset);
+            var pos = Vector3.zero;
+            Vector2 upperRightLimit = transform.position + (Vector3)size / 2f;
+            Vector2 bottomLeftLimit = transform.position - (Vector3)size / 2f;
+
+            pos.x = Random.Range(bottomLeftLimit.x, upperRightLimit.x);
+            pos.y = Random.Range(bottomLeftLimit.y, upperRightLimit.y);
+            //pos.y = transform.position.y + size.y / 2f;
             var newBall = BallsManager.i.GetNewBall();
-            newBall.transform.position = ball.transform.position + offset;
+            newBall.transform.position = pos;
         }
+    }
+
+    Vector3 GetRandomDegreeOffset()
+    {
+        var radius = 0.2f;
+        var angle = Random.Range(0, 360);
+        var rad = angle * Mathf.Deg2Rad;
+        var vec = Vector2.zero;
+        vec.x = Mathf.Cos(rad);
+        vec.y = Mathf.Sin(rad);
+        return new Vector3(vec.x, vec.y, 0) * radius; ;
     }
 
     public void Decrease(BallController ball)
