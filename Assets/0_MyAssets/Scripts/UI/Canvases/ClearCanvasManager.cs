@@ -10,6 +10,7 @@ public class ClearCanvasManager : BaseCanvasManager
     [SerializeField] Button nextButton;
     [SerializeField] Button retryButton;
     [SerializeField] Text titleText;
+    [SerializeField] Image emojiImage;
     Sequence nextButtonSequence;
     Sequence retryButtonSequence;
 
@@ -40,7 +41,7 @@ public class ClearCanvasManager : BaseCanvasManager
         retryButton.gameObject.SetActive(isLastStage);
         if (isLastStage) titleText.text = "COMPLETE!";
 
-        DOVirtual.DelayedCall(1.2f, () =>
+        DOVirtual.DelayedCall(1.0f, () =>
         {
             gameObject.SetActive(true);
             transform.localScale = Vector3.zero;
@@ -57,6 +58,11 @@ public class ClearCanvasManager : BaseCanvasManager
             .Append(nextButton.transform.DOScale(Vector3.one * 1.1f, 0.5f))
             .Append(nextButton.transform.DOScale(Vector3.one, 0.5f));
             nextButtonSequence.SetLoops(-1);
+
+            emojiImage.transform.eulerAngles = Vector3.forward * -40f;
+            emojiImage.transform.DORotate(Vector3.forward * 40f, 1.5f).SetEase(Ease.InOutFlash, 2).SetLoops(-1);
+            emojiImage.transform.localScale = Vector3.one;
+            emojiImage.transform.DOScale(Vector3.one * 1.1f, 1.5f).SetEase(Ease.InOutFlash, 4).SetLoops(-1);
         });
     }
 
