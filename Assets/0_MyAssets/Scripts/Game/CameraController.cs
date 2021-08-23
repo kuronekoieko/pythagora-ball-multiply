@@ -12,11 +12,11 @@ public class CameraController : MonoBehaviour
     public static CameraController i;
     void Start()
     {
-        if (i == null) i = this;
+        i = this;
     }
 
-    void Update()
+    public void ChangePos()
     {
-
+        transform.DOMoveY(-4f, 3f);
     }
 }
