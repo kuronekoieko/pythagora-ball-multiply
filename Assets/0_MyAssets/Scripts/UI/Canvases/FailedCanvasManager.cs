@@ -42,8 +42,6 @@ public class FailedCanvasManager : BaseCanvasManager
             .Append(restartButton.transform.DOScale(Vector3.one, 0.5f));
             retryButtonSequence.SetLoops(-1);
 
-            //emojiImage.transform.eulerAngles = Vector3.forward * -40f;
-            //emojiImage.transform.DORotate(Vector3.forward * 40f, 1.5f).SetEase(Ease.InOutFlash, 2).SetLoops(-1);
             emojiImage.transform.localScale = Vector3.one;
             emojiImage.transform.DOScale(Vector3.one * 1.1f, 1.5f).SetEase(Ease.InOutFlash, 4).SetLoops(-1);
         });
