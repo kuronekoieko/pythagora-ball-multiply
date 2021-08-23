@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using Sirenix.OdinInspector;
+using System.Linq;
 
 public enum GateType
 {
@@ -11,13 +13,24 @@ public enum GateType
 
 public class GateController : MonoBehaviour
 {
-    [SerializeField] GateType gateType;
+    [SerializeField] [OnValueChanged(nameof(OnChangedGateType))] GateType gateType;
     [SerializeField] TextMeshPro textMeshPro;
+    [SerializeField] SpriteRenderer bgSr;
+    [SerializeField] GateColor[] gateColors;
     [SerializeField] int count;
+
+
+    void OnChangedGateType()
+    {
+        var gateColor = gateColors.Where(_ => _.gateType == gateType).FirstOrDefault();
+        if (gateColor == null) return;
+        textMeshPro.color = gateColor.textColor;
+        bgSr.color = gateColor.bgColor;
+    }
+
 
     void Start()
     {
-
         gateType = (count > 0) ? GateType.Multiple : GateType.Decrease;
 
         switch (gateType)
