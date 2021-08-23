@@ -75,10 +75,7 @@ public class GateController : MonoBehaviour
 
     public void Multiple(BallController ball)
     {
-        if (ball.IsDuplicated == true) return;
-        ball.Multiple();
-        ball.IsDuplicated = true;
-
+        if (ball.IsPassed(this)) return;
         PlayMultipleTween();
 
         for (int i = 0; i < count - 1; i++)
@@ -89,6 +86,7 @@ public class GateController : MonoBehaviour
             //pos.y = transform.position.y + size.y / 2f;
             var newBall = BallsManager.i.GetNewBall();
             newBall.transform.position = pos;
+            newBall.Multiple(this);
         }
     }
 

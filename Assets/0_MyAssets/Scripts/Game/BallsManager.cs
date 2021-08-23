@@ -63,10 +63,8 @@ public class BallsManager : MonoBehaviour
         if (ball == null)
         {
             ball = Instantiate(ballPrefab, Vector3.zero, Quaternion.identity, transform);
+            ballControllers.Add(ball);
         }
-        ball.gameObject.SetActive(true);
-        ball.IsDuplicated = true;
-        ballControllers.Add(ball);
         return ball;
     }
 
