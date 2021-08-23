@@ -34,6 +34,7 @@ public class DraggableController : MonoBehaviour
         worldPos.y = startPos.y;
         transform.position = worldPos;
         axisTf.position = worldPos;
+        SoundManager.i?.Play(4);
     }
 
 }

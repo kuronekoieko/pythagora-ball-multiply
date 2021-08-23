@@ -20,5 +20,6 @@ public class RotatableController : MonoBehaviour
         screenPos.z = -Camera.main.transform.position.z;
         Vector3 worldPos = Camera.main.ScreenToWorldPoint(screenPos);
         transform.up = worldPos - transform.position;
+        SoundManager.i?.Play(4);
     }
 }

@@ -25,4 +25,14 @@ public class SoundManager : MonoBehaviour
         if (clip == null) { return; }
         audioSource.PlayOneShot(clip);
     }
+
+    public void Play(int resourceIndex)
+    {
+        if (SaveData.i.isOffSE) { return; }
+        if (SoundResourceSO.i.resources.Length - 1 < resourceIndex) { return; }
+        AudioClip clip = SoundResourceSO.i.resources[resourceIndex].audioClip;
+        if (clip == null) { return; }
+        if (audioSource.isPlaying) return;
+        audioSource.PlayOneShot(clip);
+    }
 }

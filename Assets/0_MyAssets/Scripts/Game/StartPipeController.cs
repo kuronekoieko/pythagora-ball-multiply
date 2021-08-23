@@ -17,7 +17,7 @@ public class StartPipeController : MonoBehaviour
     void Awake()
     {
         this.ObserveEveryValueChanged(_ => count)
-            .Subscribe(_ => OnChangedGoalCount())
+            .Subscribe(_ => OnChangedCount())
             .AddTo(this.gameObject);
     }
 
@@ -34,7 +34,7 @@ public class StartPipeController : MonoBehaviour
         axisRightTf.transform.DORotate(Vector3.forward * 90f, 0.5f);
     }
 
-    void OnChangedGoalCount()
+    void OnChangedCount()
     {
         countText.text = count.ToString();
     }

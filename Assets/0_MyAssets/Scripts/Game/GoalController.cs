@@ -28,6 +28,7 @@ public class GoalController : MonoBehaviour
         if (ball.IsGoaled) return;
         ball.IsGoaled = true;
         goalCount++;
+        // SoundManager.i?.PlayOneShot(0);
     }
 
     void OnChangedGoalCount()
@@ -39,7 +40,7 @@ public class GoalController : MonoBehaviour
 
         if (goalCount < 100)
         {
-            text.color = Color.red;
+            text.color = Color.white;
         }
         else
         {

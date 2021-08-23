@@ -92,6 +92,7 @@ public class GateController : MonoBehaviour
     {
         if (ball.IsPassed(this)) return;
         PlayMultipleTween();
+        SoundManager.i?.PlayOneShot(2);
 
         for (int i = 0; i < count - 1; i++)
         {
@@ -111,11 +112,13 @@ public class GateController : MonoBehaviour
         if (multipleTween == null)
         {
             multipleTween = textMeshPro.transform.DOScale(Vector3.one * 1.3f, 0.2f).SetEase(Ease.Flash, 2);
+            if (gateType == GateType.Decrease) SoundManager.i?.PlayOneShot(3);
             return;
         }
 
         if (multipleTween.IsPlaying()) return;
         multipleTween = textMeshPro.transform.DOScale(Vector3.one * 1.3f, 0.2f).SetEase(Ease.Flash, 2);
+        if (gateType == GateType.Decrease) SoundManager.i?.PlayOneShot(3);
     }
 
 
@@ -138,6 +141,7 @@ public class GateController : MonoBehaviour
         textMeshPro.text = count.ToString();
         ball.Decrease();
         if (count == 0) gameObject.SetActive(false);
+
     }
 
 }
