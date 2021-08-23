@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using Sirenix.OdinInspector;
 using System.Linq;
+using DG.Tweening;
 
 public enum GateType
 {
@@ -21,6 +22,7 @@ public class GateController : MonoBehaviour
     Vector2 size;
     float ballRadius = 0.2f;
     float padding = 0.2f;
+    Tween multipleTween;
 
     void OnChangedGateType()
     {
@@ -73,9 +75,10 @@ public class GateController : MonoBehaviour
         ball.Multiple();
         ball.IsDuplicated = true;
 
+        PlayMultipleTween();
+
         for (int i = 0; i < count - 1; i++)
         {
-
             var pos = Vector3.zero;
             Vector2 upperRightLimit = transform.position + (Vector3)size / 2f;
             Vector2 bottomLeftLimit = transform.position - (Vector3)size / 2f;
@@ -87,6 +90,21 @@ public class GateController : MonoBehaviour
             newBall.transform.position = pos;
         }
     }
+
+
+    void PlayMultipleTween()
+    {
+        if (multipleTween == null)
+        {
+            multipleTween = textMeshPro.transform.DOScale(Vector3.one * 1.3f, 0.2f).SetEase(Ease.Flash, 2);
+            return;
+        }
+
+        if (multipleTween.IsPlaying()) return;
+        multipleTween = textMeshPro.transform.DOScale(Vector3.one * 1.3f, 0.2f).SetEase(Ease.Flash, 2);
+    }
+
+
 
     Vector3 GetRandomDegreeOffset()
     {
