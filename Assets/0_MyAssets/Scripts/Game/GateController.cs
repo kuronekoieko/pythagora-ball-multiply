@@ -19,7 +19,8 @@ public class GateController : MonoBehaviour
     [SerializeField] SpriteRenderer bgSr;
     [SerializeField] GateColor[] gateColors;
     [SerializeField] int count;
-    Vector2 size;
+    Vector2 upperRightLimit;
+    Vector2 bottomLeftLimit;
     float ballRadius = 0.2f;
     float padding = 0.2f;
     Tween multipleTween;
@@ -49,8 +50,11 @@ public class GateController : MonoBehaviour
                 break;
         }
 
+        Vector2 size;
         size.x = bgSr.size.x * bgSr.transform.localScale.x;
         size.y = bgSr.size.y * bgSr.transform.localScale.y;
+        upperRightLimit = transform.position + (Vector3)size / 2f;
+        bottomLeftLimit = transform.position - (Vector3)size / 2f;
     }
 
 
@@ -80,9 +84,6 @@ public class GateController : MonoBehaviour
         for (int i = 0; i < count - 1; i++)
         {
             var pos = Vector3.zero;
-            Vector2 upperRightLimit = transform.position + (Vector3)size / 2f;
-            Vector2 bottomLeftLimit = transform.position - (Vector3)size / 2f;
-
             pos.x = Random.Range(bottomLeftLimit.x, upperRightLimit.x);
             pos.y = Random.Range(bottomLeftLimit.y, upperRightLimit.y);
             //pos.y = transform.position.y + size.y / 2f;
