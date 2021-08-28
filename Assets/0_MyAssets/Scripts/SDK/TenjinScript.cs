@@ -8,28 +8,24 @@ using UnityEngine;
 /// </summary>
 public class TenjinScript : MonoBehaviour
 {
-    /*   
-    private static readonly string API_KEY = "EDZBXKASDVB6NXDGYBPZUSZYNX1HJKUW";
-    private static BaseTenjin instance;
 
+    // studio zzz
+    private static readonly string API_KEY = "JX99KN7L6OGSRGZA9BSZM9ARD623SG1N";
     void Start()
     {
-        instance = Tenjin.getInstance(API_KEY);
-        instance.Connect();
+        TenjinConnect();
     }
-
     void OnApplicationPause(bool pauseStatus)
     {
-        if (pauseStatus)
+        if (!pauseStatus)
         {
-            //do nothing
-        }
-        else
-        {
-            BaseTenjin instance = Tenjin.getInstance(API_KEY);
-            instance.Connect();
+            TenjinConnect();
         }
     }
-    */
-
+    public void TenjinConnect()
+    {
+        BaseTenjin instance = Tenjin.getInstance(API_KEY);
+        // Sends install/open event to Tenjin
+        instance.Connect();
+    }
 }
